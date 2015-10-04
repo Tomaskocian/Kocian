@@ -1,0 +1,25 @@
+import re
+mainfile = open('vstup.txt','r')
+parse = mainfile.readlines()
+mainfile.close()
+search = re.compile('^.\d|^[J]{2}')
+string = ''
+i = 0
+
+while i < len(parse):
+    line = str(parse[i]) 
+    if re.search(search, line): 
+        if line[:6] == 'Data: ':  
+            line = line[6:] 
+            line = line[1:].replace(',', '\t') 
+            string += line  
+        else:
+            line = line[1:].replace(',', '\t')
+            string += line
+    i += 1 
+
+print(string)
+
+file = open('vystup.txt','w')
+file.write(string)
+file.close()
