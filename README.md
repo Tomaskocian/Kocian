@@ -1,0 +1,2 @@
+# Kocian
+My first repository
